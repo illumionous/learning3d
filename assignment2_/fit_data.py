@@ -106,8 +106,10 @@ def fit_voxel(voxels_src, voxels_tgt, args):
 
         print("[%4d/%4d]; ttime: %.0f (%.2f); loss: %.3f" % (step, args.max_iter, total_time,  iter_time, loss_vis))
         fig, axs = plt.subplots(1, 2)
-        axs[0].imshow(voxels_src.cpu()[0, 0])
-        axs[1].imshow(voxels_tgt.cpu()[0, 0])
+        voxels_src_np = voxels_src.detach().cpu().numpy()
+        voxels_tgt_np = voxels_tgt.detach().cpu().numpy()
+        axs[0].imshow(voxels_src_np[0, 0])
+        axs[1].imshow(voxels_tgt_np[0, 0])
         plt.show()
     print('Done!')
 
