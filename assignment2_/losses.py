@@ -6,7 +6,6 @@ def voxel_loss(voxel_src,voxel_tgt):
 	# voxel_tgt: b x h x w x d
 	# loss = 
 	# implement some loss for binary voxel grids
-	print(voxel_loss.shape)
 	bce_loss = nn.BCELoss()
 	loss = bce_loss(voxel_src, voxel_tgt)
 	return loss
